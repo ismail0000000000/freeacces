@@ -5,146 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BDIXBD - Live TV</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
     <style>
         body {
             background-color: #0b0f19;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0b0f19;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1f2937;
-            border-radius: 4px;
+            font-family: system-ui, -apple-system, sans-serif;
         }
     </style>
 </head>
 <body class="text-gray-200 min-h-screen flex flex-col justify-between">
 
-    <header class="sticky top-0 z-50 bg-[#0b0f19]/90 backdrop-blur-md border-b border-violet-500/20 px-4 py-3 md:px-8 flex items-center justify-between">
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-[#0b0f19]/95 border-b border-gray-800 px-4 py-4 md:px-8 flex items-center justify-between">
         <div class="flex items-center gap-3">
             <span class="text-2xl font-black tracking-wider text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-clip-text text-transparent">BDIXBD</span>
         </div>
         <div class="hidden md:flex items-center gap-6 text-sm font-semibold">
-            <a href="#" class="text-violet-400 hover:text-white transition"><i class="fa-solid fa-tv mr-2"></i>Live TV</a>
-            <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-solid fa-download mr-2"></i>App Download</a>
+            <a href="#" class="text-violet-400 hover:text-white transition">Live TV</a>
+            <a href="#" class="text-gray-400 hover:text-white transition">App Download</a>
             <a href="#" class="text-gray-400 hover:text-white transition">TV-Lite</a>
-        </div>
-        <div class="flex items-center gap-4">
-            <button class="p-2 text-gray-400 hover:text-white"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <button class="p-2 text-gray-400 hover:text-white"><i class="fa-solid fa-sun"></i></button>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 py-6 w-full flex-grow">
         
-        <div class="flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none text-xs md:text-sm">
-            <button class="px-4 py-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold rounded-full shadow-lg shadow-violet-600/20 shrink-0">সব</button>
-            <button class="px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-full transition shrink-0"><i class="fa-solid fa-heart text-red-500 mr-1"></i> প্রিয় চ্যানেল</button>
-            <button class="px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-full transition shrink-0">CRICKET 🏏</button>
-            <button class="px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-full transition shrink-0">BANGLADESHI 🇧🇩</button>
-            <button class="px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-full transition shrink-0">LIVE TV</button>
+        <!-- Category Tabs -->
+        <div class="flex gap-2 overflow-x-auto pb-4 mb-6 text-xs md:text-sm">
+            <button class="px-4 py-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-semibold rounded-full shrink-0">সব চ্যানেল</button>
+            <button class="px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-300 rounded-full transition shrink-0">বাংলাদেশি 🇧🇩</button>
+            <button class="px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-300 rounded-full transition shrink-0">খবর 📰</button>
         </div>
 
+        <!-- Channels Grid -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             
-            <div onclick="playChannel('Jamuna TV', 'https://m-c10-bdtv.bongobd.com/Jamuna_TV/index.m3u8')" class="group cursor-pointer bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:border-violet-500/30">
-                <div class="aspect-video w-full bg-black/40 rounded-xl flex items-center justify-center p-3 overflow-hidden mb-3">
-                    <span class="text-xl font-bold text-red-500">JAMUNA TV</span>
+            <!-- Jamuna TV -->
+            <div onclick="playChannel('Jamuna TV', 'https://www.youtube.com/embed/g3jS_p7E-hM?autoplay=1')" class="group cursor-pointer bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:border-violet-500/30">
+                <div class="aspect-video w-full bg-red-950/20 rounded-xl flex items-center justify-center mb-3">
+                    <span class="text-xl font-black text-red-500 tracking-tighter">JAMUNA</span>
                 </div>
-                <h3 class="text-sm font-bold text-center text-white/90 group-hover:text-violet-400 transition">JAMUNA TV</h3>
+                <h3 class="text-sm font-bold text-center text-white group-hover:text-violet-400 transition">Jamuna TV</h3>
             </div>
 
-            <div onclick="playChannel('Somoy TV', 'https://m-c10-bdtv.bongobd.com/Somoy_TV/index.m3u8')" class="group cursor-pointer bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:border-violet-500/30">
-                <div class="aspect-video w-full bg-black/40 rounded-xl flex items-center justify-center p-3 overflow-hidden mb-3">
-                    <span class="text-xl font-bold text-orange-500">SOMOY TV</span>
+            <!-- Somoy TV -->
+            <div onclick="playChannel('Somoy TV', 'https://www.youtube.com/embed/4I8bEof79oI?autoplay=1')" class="group cursor-pointer bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:border-violet-500/30">
+                <div class="aspect-video w-full bg-orange-950/20 rounded-xl flex items-center justify-center mb-3">
+                    <span class="text-xl font-black text-orange-500 tracking-tighter">SOMOY</span>
                 </div>
-                <h3 class="text-sm font-bold text-center text-white/90 group-hover:text-violet-400 transition">SOMOY TV</h3>
+                <h3 class="text-sm font-bold text-center text-white group-hover:text-violet-400 transition">Somoy TV</h3>
             </div>
 
-            <div onclick="playChannel('Independent TV', 'https://m-c10-bdtv.bongobd.com/Independent_TV/index.m3u8')" class="group cursor-pointer bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:border-violet-500/30">
-                <div class="aspect-video w-full bg-black/40 rounded-xl flex items-center justify-center p-3 overflow-hidden mb-3">
-                    <span class="text-xl font-bold text-blue-400">INDEPENDENT</span>
+            <!-- Independent TV -->
+            <div onclick="playChannel('Independent TV', 'https://www.youtube.com/embed/z64qB7iXw7s?autoplay=1')" class="group cursor-pointer bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:border-violet-500/30">
+                <div class="aspect-video w-full bg-blue-950/20 rounded-xl flex items-center justify-center mb-3">
+                    <span class="text-xl font-black text-blue-400 tracking-tighter">INDEPENDENT</span>
                 </div>
-                <h3 class="text-sm font-bold text-center text-white/90 group-hover:text-violet-400 transition">INDEPENDENT</h3>
+                <h3 class="text-sm font-bold text-center text-white group-hover:text-violet-400 transition">Independent TV</h3>
             </div>
 
-            <div onclick="playChannel('Channel 24', 'https://m-c10-bdtv.bongobd.com/Channel_24/index.m3u8')" class="group cursor-pointer bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:border-violet-500/30">
-                <div class="aspect-video w-full bg-black/40 rounded-xl flex items-center justify-center p-3 overflow-hidden mb-3">
-                    <span class="text-xl font-bold text-green-400">CHANNEL 24</span>
+            <!-- Channel 24 -->
+            <div onclick="playChannel('Channel 24', 'https://www.youtube.com/embed/I06m0Gz06v8?autoplay=1')" class="group cursor-pointer bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:border-violet-500/30">
+                <div class="aspect-video w-full bg-green-950/20 rounded-xl flex items-center justify-center mb-3">
+                    <span class="text-xl font-black text-green-400 tracking-tighter">CHANNEL 24</span>
                 </div>
-                <h3 class="text-sm font-bold text-center text-white/90 group-hover:text-violet-400 transition">CHANNEL 24</h3>
-            </div>
-
-            <div onclick="playChannel('Deepto TV', 'https://m-c10-bdtv.bongobd.com/Deepto_TV/index.m3u8')" class="group cursor-pointer bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] hover:border-violet-500/30">
-                <div class="aspect-video w-full bg-black/40 rounded-xl flex items-center justify-center p-3 overflow-hidden mb-3">
-                    <span class="text-xl font-bold text-yellow-500">DEEPTO TV</span>
-                </div>
-                <h3 class="text-sm font-bold text-center text-white/90 group-hover:text-violet-400 transition">DEEPTO TV</h3>
+                <h3 class="text-sm font-bold text-center text-white group-hover:text-violet-400 transition">Channel 24</h3>
             </div>
 
         </div>
     </main>
 
-    <footer class="text-center py-6 text-xs text-gray-500 border-t border-white/5 mt-10">
+    <!-- Footer -->
+    <footer class="text-center py-6 text-xs text-gray-500 border-t border-gray-900 mt-10">
         <p>© 2026 BDIXBD. All Rights Reserved.</p>
     </footer>
 
+    <!-- Video Player Modal -->
     <div id="playerModal" class="fixed inset-0 z-50 hidden bg-black/95 flex flex-col items-center justify-center p-4">
         <div class="w-full max-w-4xl bg-[#111625] rounded-3xl overflow-hidden border border-white/10 relative shadow-2xl">
+            <!-- Modal Header -->
             <div class="flex items-center justify-between px-6 py-4 border-b border-white/5">
                 <h3 id="modalChannelName" class="text-lg font-bold text-white">চ্যানেল প্লে হচ্ছে</h3>
-                <button onclick="closePlayer()" class="text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 p-2 rounded-full transition">
-                    <i class="fa-solid fa-xmark text-lg"></i>
+                <button onclick="closePlayer()" class="text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full transition text-sm font-bold">
+                    বন্ধ করুন
                 </button>
             </div>
+            <!-- Video Container -->
             <div class="aspect-video w-full bg-black">
-                <video id="my-video" class="video-js vjs-default-skin w-full h-full" controls preload="auto" autoplay>
-                    <p class="vjs-no-js">
-                        To view this video please enable JavaScript, and consider upgrading to a
-                        web browser that supports HTML5 video
-                    </p>
-                </video>
+                <iframe id="videoIframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
-    <script src="https://vjs.zencdn.net/7.20.3/video-js.min.js"></script>
     <script>
-        let player = null;
-
-        document.addEventListener('DOMContentLoaded', () => {
-            player = videojs('my-video', {
-                fluid: true,
-                autoplay: true,
-                controls: true
-            });
-        });
-
         // Open Modal and Play
-        function playChannel(channelName, streamUrl) {
+        function playChannel(channelName, embedUrl) {
             document.getElementById('modalChannelName').innerText = channelName;
             document.getElementById('playerModal').classList.remove('hidden');
-            
-            if (player) {
-                player.src({
-                    src: streamUrl,
-                    type: 'application/x-mpegURL'
-                });
-                player.play();
-            }
+            document.getElementById('videoIframe').src = embedUrl;
         }
 
         // Close Modal and Stop Playback
         function closePlayer() {
             document.getElementById('playerModal').classList.add('hidden');
-            if (player) {
-                player.pause();
-            }
+            document.getElementById('videoIframe').src = "";
         }
     </script>
 </body>
